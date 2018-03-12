@@ -18,7 +18,8 @@ export default new Router({
           path: '/home/content',
           name:'content',
           component: content,
-          redirect:'/news/list'     //redirect代表的是重定向，及访问到content时，跳转到list页面
+         // redirect:'/news/list'       redirect代表的是重定向，及访问到content时，跳转到list页面
+         // alias: '/news/list'        alias代表的是别名，url里面的地址是/news/list,而实际上的地址为/home/content
         }
       ]
     },

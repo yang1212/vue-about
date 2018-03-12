@@ -1,12 +1,7 @@
 <template>
   <div>
     <ul>
-      <li>新闻列表一</li>
-      <li>新闻列表二</li>
-      <li>新闻列表三</li>
-      <li>新闻列表四</li>
-      <br>
-      <li>新闻列表五</li>
+      <li v-for="item in items">{{item.name}}</li>
     </ul>
   </div>
 </template>
@@ -16,6 +11,11 @@
     name: 'list',
     data () {
       return {
+        items:[
+          {name:'了解路由'},
+          {name:'了解基础知识'},
+          {name:'更深层次案例'}
+        ]
       }
     }
   }
