@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>v-model</title>
+</head>
+<body>
+
+<!--绑定name值时记得在data中绑定此字段-->
+<div id="app">
+    <input type="text" v-model="name"/>
+     <p>{{name}}</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            name:'hello'
+        }
+    })
+</script>
+</body>
+</html>
