@@ -1,39 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Vue入门之生命周期</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
-
 <div id="app">
-    <p>{{age}}</p>
-    <button @click="showPage">点击</button>
+    <p>{{ number }}</p>
+    <input type="text" name="btnSetNumber" v-model="number">
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
-    new Vue({
-        el:'#app',
-//        beforeCreate(){
-//             console.log(this.age);
-//             console.log(this.showPage);
-//        },
-        data(){
-            return {
-                age:22
-            }
+    var app = new Vue({
+        el: '#app',
+        data: {
+            number: 1
         },
-        created(){
-            console.log(this.age);
-            console.log(this.showPage);
+        beforeCreate: function () {
+            console.log('beforeCreate 钩子执行...');
+            console.log(this.number)
         },
-        methods: {
-            showPage() {
-                console.log(this.page);
-            }
-        }
-    })
+        created: function () {
+            console.log('cteated 钩子执行...');
+            console.log(this.number)
+        },
+        beforeMount: function () {
+            console.log('beforeMount 钩子执行...');
+            console.log(this.number)
+        },
+        mounted: function () {
+            console.log('mounted 钩子执行...');
+            console.log(this.number)
+        },
+        beforeUpdate: function () {
+            console.log('beforeUpdate 钩子执行...');
+            console.log(this.number)
+        },
+        updated: function () {
+            console.log('updated 钩子执行...');
+            console.log(this.number)
+        },
+        beforeDestroy: function () {
+            console.log('beforeDestroy 钩子执行...');
+            console.log(this.number)
+        },
+        destroyed: function () {
+            console.log('destroyed 钩子执行...');
+            console.log(this.number)
+        },
+    });
 </script>
 </body>
 </html>
