@@ -17,6 +17,7 @@
             number: 1
         },
         beforeCreate: function () {
+            console.log(this)
             console.log('beforeCreate 钩子执行...');
             console.log(this.number)
         },
@@ -30,6 +31,7 @@
         },
         mounted: function () {
             console.log('mounted 钩子执行...');
+            console.log(this);
             console.log(this.number)
         },
         beforeUpdate: function () {

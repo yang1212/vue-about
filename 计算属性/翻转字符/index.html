@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div id="app">
+    <input v-model="name" type="text"/>
+    <!--此时的revertName 是一个函数，拿的是它的返回值-->
+    <p>{{revertName}}</p>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            name:'tiboo'
+        },
+        computed:{
+            revertName:function(){
+                return this.name.split('').reverse().join('');
+            }
+        }
+    });
+</script>
+</body>
+</html>
