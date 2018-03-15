@@ -1,0 +1,34 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div id="app">
+    <h2>{{number}}</h2>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            info:[4,2,3,4]
+            //number:''            //, 在此时挂一个number,报错说number已经在data中定义
+        },
+
+        computed: {
+            number:function(){
+                var num = 0;
+                var x;
+                this.info.forEach(function (x){
+                    num+=x;
+                });
+                return num;
+            }
+         }
+      });
+</script>
+</body>
+</html>
+
+<!--computed里面什么时候该用this，什么时候不该用，此处也不是很明白-->

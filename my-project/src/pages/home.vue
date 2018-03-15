@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <router-link to="/home/content">content</router-link>
+    <router-link to="/home/content">购物车</router-link>
     <div>
       <router-view></router-view>
     </div>
