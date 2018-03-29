@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
+
+<div ng-app="module" ng-controller="ctrl">
+    游戏: <input type="checkbox"   ng-model="game">
+    电影: <input type="checkbox"   ng-model="video">
+    音乐: <input type="checkbox"   ng-model="music">
+    <div>
+        <h1>游戏被选中</h1>
+        <h1>{{name}}</h1>
+    </div>
+    <input class="radio2" type="radio" name="radio" value="radio单选项1"/>
+    <input class="radio2" type="radio" name="radio2" value="radio单选项2"/>
+    <input class="radio2" type="radio" name="radi" value="radio单选项3"/>
+    <li>
+        <input type="radio" value="company" name="invoiceTitle" id="company"  ng-click="invoiceBox.getInvoice(invoice.status,'gs')" checked/>
+        <label for="company">公司</label>
+    </li>
+    <li>
+        <input type="radio" value="gavernment" name="invoiceTitle" id="gavernment" ng-click="invoiceBox.getInvoice(invoice.status,'zf')"/>
+        <label for="gavernment">政府机关事业单位</label>
+    </li>
+    <li>
+        <input type="radio" value="person" name="invoiceTitle" id="person" ng-click="invoiceBox.getInvoice(invoice.status,'gr')"/>
+        <label for="person">个人</label>
+    </li>
+
+
+</div>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    var m = angular.module('module', []);
+    m.controller('ctrl',  function ($scope) {
+        $scope.game = true;
+        $scope.video = false;
+        $scope.music = false;
+        $scope.$watchGroup(['game', 'video','music'],function () {
+            if($scope.video === true){
+                $scope.name = '游戏';
+            }
+            console.log($scope.name);
+        })
+
+    });
+</script>
+
+</body>
+</html>
+
