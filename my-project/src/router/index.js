@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import content from '@/components/content'
 import home from '../pages/home'
 import news from '../pages/news'
-import list from '../components/news-list'
+import list1 from '../components/news-list1'
+import list2 from '../components/news-list2.vue'
 
 Vue.use(Router);
 
@@ -27,13 +28,16 @@ export default new Router({
       path: '/news',
       name: 'news',
       component: news,
-      children:[
-        {
-          path:'/news/list',
-          name:'list',
-          component:list
-        }
-      ]
+    },
+    {
+      path:'/news/list1',
+      name:'list1',
+      component:list1
+    },
+    {
+      path:'/news/list2',
+      name:'list2',
+      component:list2
     }
-    ]
+  ]
 })

@@ -1,86 +1,93 @@
 <template>
   <div class="shop-box">
-      <table>
-        <tr>
-            <th>名称</th>
-            <th>价格</th>
-            <th>数量</th>
-            <th>操作</th>
-          </tr>
-        <tr v-for="item in items">
-          <td>{{item.name}}</td>
-          <td>{{item.price}}</td>
-          <td><span @click="reduce(item)">-</span><input type="text" v-model="item.number"/><span @click="add(item)">+</span> </td>
-          <td><a class="btn" @click="deleteBtn(item)">删除</a></td>
-        </tr>
-      </table>
-     <h3>总价格：<span></span></h3>
-     <h3>总数量：<span>{{total_num}}</span></h3>
+    <table>
+      <tr>
+        <th>名称</th>
+        <th>价格</th>
+        <th>数量</th>
+        <th>操作</th>
+      </tr>
+      <tr v-for="item in items">
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td><span @click="reduce(item)">-</span><input type="text" v-model="item.number"/><span @click="add(item)">+</span> </td>
+        <td><a class="btn" @click="deleteBtn(item)">删除</a></td>
+      </tr>
+    </table>
+    <br>
+    <h3>总价格：<span>{{totalPrice}}</span></h3>
+    <h3>总数量：<span>{{totalNumber()}}</span></h3>
 
   </div>
 </template>
 
 <script>
-export default {
-  name: 'content',
-  data () {
-    return {
-       items:[
-         {
-           name:'Tiboo1',
-           price:'22',
-           number:'2'
-         },
-         {
-           name:'Tiboo2',
-           price:'33',
-           number:'5'
-         },
-         {
-           name:'Tiboo3',
-           price:'44',
-           number:'7'
-         }
-       ],
-       totalNum:[]
-    }
-  },
-//  computed:{
-//    total_num:function(){
-//      var num = 0;
-//      this.number.forEach(function(item){
-//        num+=Number(item.number);
-//      });
-//      return num;
-//    }
-//  },
-  computed:{
-    total_num :function(){
-      var num =0;
-      this.totalNum.forEach(function (item){
-        num+=Number(item.number);
-      });
-      return num;
+//  You may have an infinite update loop in a component render function.
+//  此时不要把变量放在data里面，声明为局部变量
+  let totalMoney = 0;
+  let num = 0;
 
-    }
-  },
-
-  methods:{
-    reduce:function(item){
-      if(item.number > 0){
-        item.number --;
+  export default {
+    name: 'content1',
+    data () {
+      return {
+        items:[
+          {
+            name:'Tiboo1',
+            price:'22',
+            number:'2'
+          },
+          {
+            name:'Tiboo2',
+            price:'33',
+            number:'5'
+          },
+          {
+            name:'Tiboo3',
+            price:'44',
+            number:'7'
+          }
+        ],
+        message:'hello',
       }
     },
-    add:function(item){
-      item.number++;
-      console.log(this.totalNum.length)
+    computed:{
+      totalPrice: function(){
+        var vm = this;
+        vm.totalMoney = 0;
+        vm.items.forEach(function(item){
+//          在此处打印this为undefined,故用vm保存this字段的引用
+//          console.log(this);
+          vm.totalMoney +=Number(item.price*item.number);
+        });
+        return vm.totalMoney;
+      }
     },
-    deleteBtn:function(item){
-      //点击按钮的时候，怎么识别到我是点的哪一个，然后输出对应的item;
-      this.items.splice(this.items.indexOf(item),1)
+    methods:{
+      totalNumber :function(){
+        var vm = this;
+
+//      每次进来需要重置num
+        vm.num = 0;
+        vm.items.forEach(function(item){
+          vm.num +=Number(item.number);
+        });
+        return vm.num;
+      },
+      reduce:function(item){
+        if(item.number > 0){
+          item.number --;
+        }
+      },
+      add:function(item){
+        item.number++;
+      },
+      deleteBtn:function(item){
+        //点击按钮的时候，怎么识别到我是点的哪一个，然后输出对应的item;
+        this.items.splice(this.items.indexOf(item),1)
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

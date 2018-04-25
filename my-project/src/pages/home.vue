@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <router-link to="/home/content">购物车</router-link>
+    <br>
+    <router-link to="/home/content">购物车案例</router-link>
+    <el-button @click="showInfo">弹出</el-button>
+    <tip-pop  v-show="openPop"  :hideInf="hideInfo" :message="msg" ></tip-pop>
     <div>
       <router-view></router-view>
     </div>
@@ -9,11 +11,24 @@
 </template>
 
 <script>
+  import tipPop from '../components/tip-pop'
   export default {
+    components:{
+      tipPop
+    },
     name: 'home',
     data () {
       return {
-        msg: 'Welcome to home'
+        msg: 'Welcome to home',
+        openPop: false,
+      }
+    },
+    methods:{
+      showInfo(){
+        this.openPop = true;
+      },
+      hideInfo(){
+        this.openPop = false;
       }
     }
   }
