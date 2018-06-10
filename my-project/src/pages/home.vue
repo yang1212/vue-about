@@ -1,18 +1,13 @@
 <template>
   <div class="hello">
-    <br>
-    <router-link to="/home/content">购物车案例</router-link>
-    <el-button @click="showInfo">弹出</el-button>
-    <tip-pop  v-show="openPop"  :hideInf="hideInfo" :message="msg" ></tip-pop>
-    <br>
-    <strong style="color:red">自定义事件从子组件向父组件中传递数据</strong>
-    <br>
-    <br>
-    <div>
-       父组件,我接受到了：
-       {{ text || '暂无数据' }}
-       <!-- v-on 监听sendData事件 -->
-       <son v-on:sendData='getSonText'></son>
+    <div style="margin-top:30px">
+      <strong style="color:red">自定义事件从子组件向父组件中传递数据</strong>
+      <div>
+        父组件,我接受到了：
+        {{ text || '暂无数据' }}
+        <!-- v-on 监听sendData事件 -->
+        <son v-on:sendData='getSonText'></son>
+      </div>
     </div>
     <div  style="margin-top:50px;">
       <strong style="color:red">通过ref属性在父组件中直接取得子组件中的数据</strong>
@@ -27,9 +22,25 @@
         {{ fuValue || '暂无数据'  }}</p>
        <son-fx :wisdom.sync="fuValue"></son-fx>
     </div>
-    <!-- <div>
+    <div style="margin-top:50px">
+      <p style="color:red">状态管理模式 mutations</p>
+       {{count}}
+       <!-- 使用 $store.commit('switch_dialog') 来触发 mutations 中的 switch_dialog 方法。 -->
+       <a href="javascript:;" @click="$store.commit('switch_dialog')">点击</a>
+    </div>
+    <div style="margin-top:50px">
+      <p style="color:red">状态管理模式 actions</p>
+       {{count}}
+       <a href="javascript:;" @click="$store.dispatch('switch_dialog_actions')">点击</a>
+    </div>
+    <div style="margin-top:40px;">
+        <router-link to="/home/content">购物车案例</router-link>
+        <el-button @click="showInfo">弹出</el-button>
+        <tip-pop  v-show="openPop"  :hideInf="hideInfo" :message="msg" ></tip-pop> 
+    </div>
+    <div>
       <router-view></router-view>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -54,6 +65,11 @@
         text: '',
         texting: '',
         fuValue: 60
+      }
+    },
+     computed: {
+      count() {
+         return this.$store.state.dialog.show
       }
     },
     methods:{

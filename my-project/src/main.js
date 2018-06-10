@@ -5,15 +5,18 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App'
 import router from './router'
-
+import Vuex from 'vuex'
+import store from './store/myModule'
 
 Vue.use(ElementUI);
+Vue.use(Vuex)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store, //使用store
   components: { App },
   template: '<App/>'
 })
