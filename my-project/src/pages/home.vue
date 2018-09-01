@@ -36,7 +36,7 @@
     <div style="margin-top:40px;">
         <router-link to="/home/content">购物车案例</router-link>
         <el-button @click="showInfo">弹出</el-button>
-        <tip-pop  v-show="openPop"  :hideInf="hideInfo" :message="msg" ></tip-pop> 
+        <tip-pop  v-show="openPop"  :hideInf="hideInfo" :message="msg" ></tip-pop>
     </div>
     <div>
       <router-view></router-view>
@@ -87,7 +87,7 @@
         console.log(this.$refs.sonEx.texting)
         this.texting = this.$refs.sonEx.texting;
       }
-      
+
     }
   }
 </script>
