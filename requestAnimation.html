@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>v-if</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .content {
+            width: 100%;
+        }
+
+        ul {
+            font-size: 0;
+            width: 1320px;
+        }
+
+        .list {
+            width: 100px;
+            height: 100px;
+            background: #000;
+            color: #fff;
+            display: inline-block;
+            font-size: 28px;
+            margin-left: 10px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app" class="content">
+        <ul id="SomeElementYouWantToAnimate">
+            <li class="list">1</li>
+            <li class="list">2</li>
+            <li class="list">3</li>
+            <li class="list">4</li>
+            <li class="list">5</li>
+            <li class="list">6</li>
+            <li class="list">1</li>
+            <li class="list">2</li>
+            <li class="list">3</li>
+            <li class="list">4</li>
+            <li class="list">5</li>
+            <li class="list">6</li>
+        </ul>
+        <div id="box" style="background: yellowgreen;width:30px;">2233</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script>
+        // 最原始的方法就是我们利用JavaScript的setTimeout/setInterval来实现动画，
+        // 不过现在我们又多了一种方法 requestAnimationFrame
+
+        // var start = null;
+        // var element = document.getElementById('SomeElementYouWantToAnimate');
+        // element.style.position = 'absolute';
+
+        // // timestamp表示回调队列被触发的时间
+        // function step(timestamp) {
+        //     if (!start) {
+        //         start = timestamp;
+        //     }
+        //     var progress = timestamp - start;
+        //     // 200, 4000控制移动的距离
+        //     element.style.left = Math.min(progress / 10, 200) + 'px';
+        //     if (progress < 4000) {
+        //         window.requestAnimationFrame(step);
+        //     }
+        // }
+
+        // window.requestAnimationFrame(step);
+
+        function animationWidth() {
+            var div = document.getElementById('box');
+            div.style.width = parseInt(div.style.width) + 1 + 'px';
+            console.log(div.style.width)
+
+            if (parseInt(div.style.width) < 200) {
+                requestAnimationFrame(animationWidth)
+            }
+        }
+        requestAnimationFrame(animationWidth);
+
+    </script>
+</body>
+
+</html>
