@@ -21,3 +21,8 @@ v-if    显示为undefined, 资源未完全加载，整个DOM节点还未渲染
 
 1 在mounted里面，nextTick立即运行
 2 在方法里面，nextTick最后才运行里面的逻辑
+
+lesson learn:
+<div :style="{background: 'url('+ cmsData.layoutBgUrls[0] +')',backgroundSize:'cover' }"></div>
+v-show  先渲染backgroundSize: cover, 等到获取元素背景图片显示，cover失效
+v-if    必须等到元素获取时才显示背景图片，cover未失效
