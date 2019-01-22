@@ -18,6 +18,7 @@
             name:'tiboo'
         },
         computed:{
+            // revertName及计算属性值不需要在data中定义
             revertName:function(){
                 return this.name.split('').reverse().join('');
             }
