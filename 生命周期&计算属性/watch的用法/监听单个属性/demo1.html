@@ -17,6 +17,7 @@
             lastName:"张三"
         },
         watch:{
+            // 对lastName的监控不能通过this.lastName来监控值的改变，否则将监听不到
             lastName:function(val,oldval){
                 console.log(this.lastName);
                 console.log(val);

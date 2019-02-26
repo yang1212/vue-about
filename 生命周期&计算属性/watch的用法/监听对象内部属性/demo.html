@@ -22,6 +22,7 @@
             tdArray:["1","2"]
         },
         watch:{
+            // 对于对象，需要深度监听，否则监听不到值的改变
             childrens:{
                 handler:function(val,oldval){
                     console.log(val.name)

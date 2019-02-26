@@ -19,6 +19,7 @@
         },
         computed:{
             // revertName及计算属性值不需要在data中定义
+            // 计算属性需要在模板中使用，否则不会触发到计算属性
             revertName:function(){
                 return this.name.split('').reverse().join('');
             }
