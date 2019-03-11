@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>v-model</title>
+</head>
+<body>
+　  <div id="app">
+        <!-- 页面此时添加一个div后，再次点击按钮也不会新增div -->
+        <p @click="createMask">test</p>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+    var vm = new Vue( {
+        el: '#app',
+        data: {
+           mask: ''
+        },
+        created() {
+          
+        },
+        methods: {
+            createMask() {
+                let createReturn = function() {
+                    return function() {
+                        return this.mask || (this.mask = document.getElementById('app').appendChild(document.createElement('div')))
+                    }
+                }()
+                createReturn()
+            }
+        },
+        watch:{
+            
+        }
+    } );
+
+</script>
+</body>
+</html>
