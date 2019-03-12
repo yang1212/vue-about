@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>v-model</title>
+</head>
+<body>
+　  <div id="app"></div>
+<script>
+    window.onload = function() {
+        var name = "The Window data";
+        var object = {
+        　　name : "My Object",
+        　　getNameFunc : function(){
+                // console.log(this)  this 指向对象object
+            　　return function(){
+                    console.log(this)
+            　　　　　return this.name
+            　  }
+            }
+        }
+        console.log(object.getNameFunc()());   // 输出结果为空
+    }
+</script>
+<script>
+</script>
+</body>
+</html>

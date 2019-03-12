@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>v-model</title>
+</head>
+<body>
+　  <div id="app">Btn</div>
+<script>
+    function Person() {
+        var text = new Date()
+    }
+    // 通过闭包实现单例模式 （instance就被封装起来了，不用担心被修改了）
+    var instance
+    document.getElementById('app').addEventListener('click', function() {
+        return function() {
+            if (!instance) {
+                instance = new Person()
+            } else {
+                // console.log(instance)
+                return instance
+            }
+        }()
+        // instance = 22
+    })
+</script>
+<script>
+</script>
+</body>
+</html>
