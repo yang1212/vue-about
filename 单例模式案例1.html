@@ -8,9 +8,6 @@
 <body>
 　  <div id="app">Btn</div>
 <script>
-    function Person() {
-        var text = new Date()
-    }
     // 通过全局变量实现单例模式  (在多人合作或者是项目复杂情况下，作为一个全局变量值容易被覆盖,故不推荐)
     var instance
     document.getElementById('app').addEventListener('click', function() {
