@@ -12,18 +12,37 @@
         var text = new Date()
     }
     // 通过闭包实现单例模式 （instance就被封装起来了，不用担心被修改了）
-    var instance
+
+    // 原理：当对象第一次被创建以后，重写构造函数，在重写后的构造函数里面访问私有变量
     document.getElementById('app').addEventListener('click', function() {
-        return function() {
-            if (!instance) {
-                instance = new Person()
-            } else {
-                // console.log(instance)
-                return instance
+        var test = function() {
+            function fn() {
+                var instance = new Date()
+            }
+            return function() {
+                if (!instance) {
+                    fn()
+                } else {
+                    console.log(instance)
+                    return instance
+                }
             }
         }()
-        // instance = 22
+        
+        console.log(test)
+
+        // 闭包： 运行完一个函数，当前环境清除。而由于闭包的存在，依赖于的父级的环境，故变量值不会清空
+       
+        // return function() {
+        //     if (!instance) {
+        //         instance = new Person()
+        //     } else {
+        //         console.log(instance)
+        //         return instance
+        //     }
+        // }()
     })
+    instance = 22
 </script>
 <script>
 </script>

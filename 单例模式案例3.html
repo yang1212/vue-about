@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>v-model</title>
+</head>
+<body>
+　  <div id="app">Btn</div>
+<script>
+    // 使用构造函数的静态属性
+    document.getElementById('app').addEventListener('click', function() {
+        function Test(name) {
+            if (typeof Test.instance === 'object') {
+                return Test.instance
+            }
+            this.name = name;
+            Test.instance = this;
+            return this
+        }
+        var instance = new Test('yang')
+        console.log(new Test('yang'))
+    })
+</script>
+<script>
+</script>
+</body>
+</html>
