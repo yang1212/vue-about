@@ -12,16 +12,6 @@ v-if   必须等到元素获取时才显示背景图片，cover未失效
 v-show  显示出当前获取到的DOM元素
 v-if    显示为undefined, 资源未完全加载，整个DOM节点还未渲染
 
-三、 nextTick的使用
-
-1. nextTick不一定只是放置于create，mounted这两个钩子函数中
-2. 对于异步加载的数据，由于mounted只执行一次，所以不会更新到，此时可以放置于方法中去检验DOM是否更新
-
-四、 nextTick 什么时候运行
-
-1 在mounted里面，nextTick立即运行
-2 在方法里面，nextTick最后才运行里面的逻辑
-
 lesson learn:
 <div :style="{background: 'url('+ cmsData.layoutBgUrls[0] +')',backgroundSize:'cover' }"></div>
 v-show  先渲染backgroundSize: cover, 等到获取元素背景图片显示，cover失效

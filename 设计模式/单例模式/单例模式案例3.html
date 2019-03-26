@@ -11,9 +11,6 @@
     // 使用构造函数的静态属性 (当构造函数生成的两个实例全等于时，则证明为同一实例，即满足单例模式)
     document.getElementById('app').addEventListener('click', function() {
         function Test(name) {
-            // Test.instance 等于 this即实例
-
-            // 构造函数中的this指向的是?
             console.log(typeof Test.instance)
             if (typeof Test.instance === 'object') {
                 return Test.instance
@@ -23,8 +20,6 @@
         }
         var instance = new Test('yang')
         var instance1 = new Test('yan')
-        console.log(instance === instance1)
-
         // Result: undefined , object, true
     })
 </script>
