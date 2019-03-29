@@ -8,7 +8,7 @@
 <body>
 　  <div id="app">
         <!-- 页面此时添加一个div后，再次点击按钮也不会新增div -->
-        <p @click="createMask">test</p>
+        <p @click="createMask" @mouseleave="testFn" style="width:200px;height:200px;background:pink">test</p>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
@@ -22,12 +22,10 @@
         },
         methods: {
             createMask() {
-                let createReturn = function() {
-                    return function() {
-                        return this.mask || (this.mask = document.getElementById('app').appendChild(document.createElement('div')))
-                    }
-                }()
-                createReturn()
+                console.log('点击')
+            },
+            testFn() {
+                console.log('点击过程触发mouseleave事件')
             }
         },
         watch:{
