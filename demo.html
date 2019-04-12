@@ -7,31 +7,34 @@
 </head>
 <body>
 　  <div id="app">
-        <!-- 页面此时添加一个div后，再次点击按钮也不会新增div -->
-        <p @click="createMask" @mouseleave="testFn" style="width:200px;height:200px;background:pink">test</p>
+        <p style="width:200px;height:200px;background:pink">test</p>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
-    var vm = new Vue( {
-        el: '#app',
-        data: {
-           mask: ''
-        },
-        created() {
-          
-        },
-        methods: {
-            createMask() {
-                console.log('点击')
-            },
-            testFn() {
-                console.log('点击过程触发mouseleave事件')
+    var number = 5;
+    var obj = {
+        number: 3,
+        fn1: (function () {
+            var number;
+            this.number *= 2;
+            console.log('------------')
+            console.log(window.number)
+            number = number * 2;
+            number = 3;
+            return function () {
+                var num = this.number;
+                this.number *= 2;
+                console.log(num);
+                number *= 3;
+                console.log(number)
             }
-        },
-        watch:{
-            
-        }
-    } );
+        })()
+    }
+    var fn1 = obj.fn1;
+    fn1.call(null);
+    obj.fn1();
+    console.log(window.number);
+
+    // 10 9 3 27 20
 
 </script>
 </body>
