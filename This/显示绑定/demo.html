@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>显式绑定比较好理解，就是通过call,apply,bind的方式</title>
+</head>
+<body>
+　  <div id="app">
+        <p style="width:200px;height:200px;background:pink">green</p>
+    </div>
+<script>
+    // eg1:
+    // function sayHi(){
+    //     console.log('Hello,', this.name);
+    // }
+    // var testMan = {
+    //     name: 'Tiboo',
+    //     sayHi: sayHi
+    // }
+    // var name = 'yangfu'
+    // var man = testMan.sayHi
+    // man.apply(testMan)
+
+    // eg2:
+    function sayHi() {
+        console.log('hello,', this.name) 
+    }
+    var testMan = {
+        name: 'Tiboo',
+        sayHi: sayHi
+    }
+    var name = 'yangfu'
+    var man = function(fn) {
+        fn.call(this)
+    }
+    man.call(testMan, testMan.sayHi)
+</script>
+</body>
+</html>
