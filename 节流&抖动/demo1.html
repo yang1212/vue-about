@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>抖动</title>
+</head>
+<body>
+
+<div id="app" style="height:1000px"></div>
+
+<script>
+    window.onload = function() {
+        function fnTest() {
+            console.log('success')
+        }
+        function boundce(delay) {
+            let time = null
+            return function(res) {
+                clearInterval(time)
+                time = setTimeout(() => {
+                    fnTest()
+                }, delay)
+            }
+        }
+        window.addEventListener('scroll', boundce(1000));
+    }
+</script>
+</body>
+</html>
