@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div id="app">
+    <div>
+       <input v-model="testData" @keydown="matchNumber" id="numberValue"/>
+    </div>
+</div>
+
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    //创建根实例
+    new Vue({
+        el:"#app",
+        data: {
+            testData: '',
+        },
+        methods: {
+            matchNumber() {
+                setTimeout(() => {
+                    let input = document.getElementById('numberValue')
+                    let realStart = this.testData.substring(0, input.selectionStart || 0).replace(/\-/g, '').length;
+                    console.log(realStart)
+                    realStart += parseInt((realStart - 1) / 4)
+                    console.log(realStart)
+                
+
+                    this.testData = this.testData.replace(/\D/g, '');
+                    this.testData = this.testData.replace(/....(?!$)/g, '$&-');
+                    setTimeout(() => {
+                      document.getElementById('numberValue').setSelectionRange(realStart, realStart)
+                    }, 30)
+
+                }, 100)
+               
+            }
+        }
+    })
+</script>
+</body>
+</html>

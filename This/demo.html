@@ -11,13 +11,12 @@
     </div>
 <script>
     var number = 5;
+    
     var obj = {
         number: 3,
         fn1: (function () {
-            var number;
+            var number
             this.number *= 2;
-            console.log('------------')
-            console.log(window.number)
             number = number * 2;
             number = 3;
             return function () {
@@ -34,8 +33,11 @@
     obj.fn1();
     console.log(window.number);
 
-    // 10 9 3 27 20
+    // 10 9 3 27  20
 
+  
+
+   
 </script>
 </body>
 </html>
