@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
+    
+<div id="app">
+    12
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+
+    let Num = function() {
+        var a = 0
+        this.aa = function() {
+            a++
+        }
+        this.bb = function() {
+            return a
+        }
+    }
+    
+    var test = new Num()
+    
+	test.aa()
+	console.log(test.bb())
+    test.aa()
+    console.log(test.bb())
+
+  
+
+    // function checkClosure() {
+    //     var str = 1;
+    //     return function(){ 
+    //        str++
+    //        console.log(str)
+    //     } 
+    // }
+    // let fn = checkClosure();
+    // fn()
+    // fn()
+            
+</script>
+</body>
+</html>

@@ -17,7 +17,7 @@
         function boundce(delay) {
             let time = null
             return function(res) {
-                clearInterval(time)
+                clearTimeout(time)
                 time = setTimeout(() => {
                     fnTest()
                 }, delay)
@@ -28,3 +28,8 @@
 </script>
 </body>
 </html>
+
+<!-- 参与者： 需要运行方法，  防抖方法， 触发事件 -->
+
+<!-- 触发事件时，通过clearTimeout清除上一次行为，直到最后一次触发时，运行需要运行的方法 -->
+
