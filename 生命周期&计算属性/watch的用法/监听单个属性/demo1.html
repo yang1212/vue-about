@@ -7,21 +7,24 @@
 </head>
 <body>
 　  <div id="app">
-        <input type="text" v-model="lastName" />
+        <input type="text" v-model="lastName" @input="init()()"/>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
     var vm = new Vue( {
         el: '#app',
         data: {
-            lastName:"张三"
+            lastName:"张三",
+            time: null
         },
-        watch:{
-            // 对lastName的监控不能通过this.lastName来监控值的改变，否则将监听不到
-            lastName:function(val,oldval){
-                console.log(this.lastName);
-                console.log(val);
-                console.log(oldval);
+        methods: {
+            init(){
+                return function(res) {
+                    clearTimeout(this.time)
+                    this.time = setTimeout(() => {
+                        console.log(233)
+                    }, 1000)
+                }
             }
         }
     } );

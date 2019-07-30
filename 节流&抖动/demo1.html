@@ -7,23 +7,21 @@
 </head>
 <body>
 
-<div id="app" style="height:1000px"></div>
+<div id="app" style="height:1000px">
+  
+</div>
 
 <script>
     window.onload = function() {
-        function fnTest() {
-            console.log('success')
-        }
-        function boundce(delay) {
+        window.addEventListener('scroll', function() {
             let time = null
             return function(res) {
                 clearTimeout(time)
                 time = setTimeout(() => {
-                    fnTest()
-                }, delay)
+                    console.log(245)
+                }, 1000)
             }
-        }
-        window.addEventListener('scroll', boundce(1000));
+        }());
     }
 </script>
 </body>

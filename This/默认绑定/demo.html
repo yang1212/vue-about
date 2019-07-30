@@ -10,9 +10,11 @@
         <p style="width:200px;height:200px;background:pink">green</p>
     </div>
 <script>
+    // 默认绑定， 在非严格模式下, 此时的this指向全局
     var name = 'Tiboo'
     function sayHi(){
-        console.log('Hello,', this.name);
+        console.log(this)                  // Window对象
+        console.log('Hello,', this.name);  // Hello, Tiboo
     }
     sayHi();
 </script>
