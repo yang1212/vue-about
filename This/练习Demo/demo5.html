@@ -15,21 +15,20 @@
     function getValue() {
         console.log('color:', this.color)
     }
-
     var list = {
         color: 'red',
         fn: function() {
-            console.log(this)
+            console.log(this)    // Object
             setTimeout(() => {
-                console.log(this)
+                console.log(this)  // Object
             })
-            setTimeout(function() {
+            setTimeout(function() { // Window
                 console.log(this)
             })
         }
     }
-
     list.fn()
+
 </script>
 </body>
 </html>

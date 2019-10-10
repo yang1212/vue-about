@@ -1,0 +1,27 @@
+{
+  "plugins": [
+    "transform-object-rest-spread",
+    "syntax-dynamic-import",
+    ["transform-runtime", {
+      "polyfill": true,
+      "regenerator": true
+    }],
+    [
+      "component", {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ],
+  "presets": [
+    [ "env", {
+      "targets": {
+        "browsers": [
+          "> 1%",
+          "last 2 versions",
+          "not ie <= 8"
+        ]
+      },
+    }]
+  ]
+}

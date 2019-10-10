@@ -12,18 +12,18 @@
 <script>
     
     // eg1: 函数的调用是在某个对象上触发的，即调用位置上存在上下文对象
-    // var name = 'yangfu'
-    // function sayHi() {
-    //     // 指向testMan这个对象
-    //     console.log(this)    
-    //     // hello, Tiboo                
-    //     console.log('hello', this.name)     
-    // }
-    // var testMan = {
-    //     name: 'Tiboo',
-    //     sayHi: sayHi
-    // }
-    // testMan.sayHi()   
+    var name = 'yangfu'
+    function sayHi() {
+        // 指向testMan这个对象
+        console.log(this)    
+        // hello, Tiboo                
+        console.log('hello', this.name)     
+    }
+    var testMan = {
+        name: 'Tiboo',
+        sayHi: sayHi
+    }
+    testMan.sayHi()   
 
     //=========================================================================================
 

@@ -11,18 +11,18 @@
     </div>
 <script>
     // eg1: 
-    // function sayHi(){
-    //     // Hello, Tiboo
-    //     console.log('Hello,', this.name);
-    // }
-    // var testMan = {
-    //     name: 'Tiboo',
-    //     sayHi: sayHi
-    // }
-    // var name = 'yangfu'
-    // var man = testMan.sayHi
-    // // 通过apply, 设置函数体内this指向的值,此时指向了testMan
-    // man.apply(testMan)
+    function sayHi(){
+        // Hello, Tiboo
+        console.log('Hello,', this.name);
+    }
+    var testMan = {
+        name: 'Tiboo',
+        sayHi: sayHi
+    }
+    var name = 'yangfu'
+    var man = testMan.sayHi
+    // 通过apply, 设置函数体内this指向的值,此时指向了testMan
+    man.apply(testMan)
 
     //=========================================================================================
 

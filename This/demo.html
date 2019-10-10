@@ -23,7 +23,6 @@
             this.number *= 2;
             number = number * 2;
             number = 3;
-            console.log('=======')
             return function () {
                 var num = this.number;
                 this.number *= 5;
@@ -35,9 +34,9 @@
     }
  
     var fn1 = obj.fn1;  
-    fn1.call(null); 
-    obj.fn1();
-    console.log(window.number);
+    fn1.call(null) 
+    obj.fn1();      
+    console.log(window.number); 
 
 
     // ** 自执行函数this指向Window对象
