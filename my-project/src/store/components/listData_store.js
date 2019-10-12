@@ -8,8 +8,7 @@ const listDataModule = {
   },
   actions: {
     setTimelineAction({ commit, state }, result) { 
-        console.log(result)
-        commit('setTimelineMutation', result) 
+      commit('setTimelineMutation', result) 
     }
   },
   getters: {

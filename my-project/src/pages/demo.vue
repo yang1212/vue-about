@@ -15,7 +15,7 @@
         <div class="send-btn">下載iGola App</div>
       </div>
       <div class="box-right">
-        {{detailData}}
+        
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
       }
     },
     created() {
-      this.getDetailData() // 获取数据
+      this.getDetailData() 
     },
     computed: {
       ...mapGetters('listDataModule', [
@@ -45,7 +45,7 @@
       ...mapActions('listDataModule', [
         'setTimelineAction'
       ]), 
-      getDetailData() {
+      getDetailData() { // 获取数据
         getList().then((res) => {
           this.setTimelineAction(res)
         }).catch((error) => {
