@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import content from '@/components/content'
 import demo from '../pages/demo'
 import home from '../pages/home'
+import account from '../pages/account/account'
 import news from '../pages/news'
 import list1 from '../components/news-list1'
 import list2 from '../components/news-list2.vue'
@@ -15,6 +16,11 @@ export default new Router({
       path: '/demo',
       name: 'demoTest',
       component: demo
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: account
     },
     {
       path: '/index',

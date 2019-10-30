@@ -1,23 +1,6 @@
 <template>
   <div class="app-container">
-    <div class="header">
-      <a class="logo"><img src="../img/igola-logo-oversea.png"/></a>
-      <ul>
-        <li>Book Flights</li>
-        <li>Book Hotels</li>
-        <li>Search guest bookings</li>
-      </ul>
-    </div>
-    <div class="content">
-      <div class="box-left">
-        <h1>全球⽐價 即搜即買</h1>
-        <h2>下載iGola App</h2>
-        <div class="send-btn">下載iGola App</div>
-      </div>
-      <div class="box-right">
-        
-      </div>
-    </div>
+    <div class="index-btn" @click="goHomePage">Enter</div>
   </div>
 </template>
 
@@ -51,53 +34,34 @@
         }).catch((error) => {
           console.log(error)
         })
+      },
+      goHomePage() {
+        this.$router.push('/account')
       }
     }
   }
 </script>
 
 <style lang="less">
-  * {
-    padding: 0;
+  html,body{
+    height: 100%;
     margin: 0;
+    padding: 0;
   }
   .app-container {
-    background-image: url("../img/oversea_propagate_bg.png");
-    height: 900px;
-    .header {
-      background: #fff;
-      height: 60px;
-      position: relative;
-      font-size: 14px;
-      .logo {
-        position: absolute;
-        top: 50%;
-        z-index: 116;
-        transform: translateY(-50%);
-        margin-left: 40px;
-      }
-      ul {
-        line-height: 60px;
-        margin-left: 150px;
-        li {
-          display: inline-block;
-          padding: 0 15px;
-        }
-      }
-    }
-    .content {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      padding-top: 78px;
+    background-image: url("../img/bg.jpg");
+    background-size: 100%;
+    background-repeat:no-repeat;
+    height: 100%;
+    .index-btn {
+      background: #293182;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 116;
+      transform: translate(-50%, -50%);
       color: #fff;
-      .box-left {
-        width: 700px;
-        .send-btn {
-          background: #293182;
-          .common-style(60px, 432px)
-        }
-      }
+      .common-style(50px, 132px)
     }
   }
   .common-style(@hightSize, @widthSize) {
